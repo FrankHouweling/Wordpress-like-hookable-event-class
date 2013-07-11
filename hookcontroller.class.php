@@ -5,22 +5,18 @@ class hookController
     static $instance;
     private $hooks;
     
-    public static function getInstance()
-    {
-        if( self::$instance instanceof hookController )
-        {
+    public static function getInstance(){
+        if( self::$instance instanceof hookController ){
             return self::$instance;
         }
-        else
-        {
+        else{
             $controller = new hookController();
             self::$instance = $controller;
             return $controller;
         }
     }
     
-    public function getHooks( $classname, $functionname )
-    {
+    public function getHooks( $classname, $functionname ){
         $return = array();
         if( count($this->hooks) !== 0 ){
             foreach( $this->hooks as $h ){
@@ -32,8 +28,7 @@ class hookController
     }
     
     public function addHook( $hookedClassName, $hookedFunctionName, 
-            $calledObject, $calledFunctionName )
-    {
+            $calledObject, $calledFunctionName ){
         $this->hooks[]  =   array( "hookedClassName" =>  $hookedClassName, 
                                                "hookedFunctionName" => $hookedFunctionName, 
                                                "calledObject" => $calledObject, 

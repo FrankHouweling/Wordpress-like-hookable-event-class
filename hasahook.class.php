@@ -4,22 +4,13 @@ require_once "hookable.class.php";
 
 class hasAHook extends hookable
 {
-    
-    function __construct()
-    {
-        
-    }
-    
-    function hookedEvent()
-    {
+    function hookedEvent(){
         echo "Yeah!";
     }
     
-    function caller()
-    {
+    function caller(){
         $this->hook()->hookedEvent();
     }
-    
 }
 
 ?>
